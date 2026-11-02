@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>නිමාෂා & නුවන් | විවාහ මංගල ආරාධනය</title>
+<meta name="description" content="නිමාෂා සහ නුවන්ගේ විවාහ මංගල්‍යයට ඔබට ගෞරවයෙන් ආරාධනා කරමු" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{--crimson:#8B1E3F;--deep:#5a0f27;--gold:#C9A227;--gold-l:#E8D48B;--ivory:#FBF6EE;--cream:#F4EADB;--dark:#2C1810;--ink:#4a372c}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Serif Sinhala',serif;background:var(--ivory);color:var(--dark);overflow-x:hidden;line-height:1.95;font-weight:400}
+svg.defs{position:absolute;width:0;height:0}
+
+/* ===== falling roses ===== */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:900;overflow:hidden}
+.fall{position:absolute;top:-60px;animation:fall linear infinite;filter:drop-shadow(0 4px 5px rgba(90,15,39,.3));will-change:transform}
+.fall svg{width:100%;height:100%;display:block;animation:spin ease-in-out infinite alternate}
+@keyframes fall{0%{transform:translate3d(0,-10vh,0);opacity:0}8%{opacity:.95}50%{transform:translate3d(var(--sw),55vh,0)}100%{transform:translate3d(calc(var(--sw)*-.6),112vh,0);opacity:.9}}
+@keyframes spin{from{transform:rotate(-35deg) rotateY(0)}to{transform:rotate(55deg) rotateY(60deg)}}
+
+/* ===== splash ===== */
+#splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.5rem;background:radial-gradient(ellipse at 50% 35%,#8B1E3F 0%,#5a0f27 50%,#2C1810 100%);transition:opacity 1.4s ease,visibility 1.4s,transform 1.4s}
+#splash.hide{opacity:0;visibility:hidden;transform:scale(1.08);pointer-events:none}
+.splash-rose{width:150px;height:150px;animation:bloom 2.4s cubic-bezier(.2,.9,.3,1) both,float 5s ease-in-out 2.4s infinite;filter:drop-shadow(0 0 25px rgba(232,212,139,.45))}
+@keyframes bloom{from{transform:scale(.15) rotate(-90deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+@keyframes float{50%{transform:translateY(-8px) rotate(3deg)}}
+.splash-names{font-size:clamp(2.1rem,7vw,3.6rem);font-weight:600;margin-top:1.5rem;line-height:1.5;background:linear-gradient(90deg,#E8D48B,#fff3c4,#C9A227,#E8D48B);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0;animation:fadeUp 1.2s ease 1.2s forwards}
+.splash-sub{color:rgba(232,212,139,.9);font-size:1.15rem;margin-top:.3rem;opacity:0;animation:fadeUp 1.2s ease 1.6s forwards}
+.splash-btn{margin-top:2rem;padding:.85rem 2.6rem;background:transparent;border:1.5px solid var(--gold);color:var(--gold-l);font:inherit;font-size:1.05rem;cursor:pointer;opacity:0;animation:fadeUp 1.2s ease 2s forwards;transition:background .4s,color .4s,box-shadow .4s}
+.splash-btn:hover,.splash-btn:focus-visible{background:var(--gold);color:var(--deep);box-shadow:0 0 28px rgba(201,162,39,.55);outline:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ===== nav ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.9rem 1rem;display:flex;justify-content:center;gap:2.2rem;background:rgba(251,246,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,162,39,.3);transform:translateY(-100%);transition:transform .7s cubic-bezier(.22,1,.36,1),box-shadow .3s}
+nav.visible{transform:none}
+nav a{color:var(--deep);text-decoration:none;font-size:1rem;font-weight:500;position:relative}
+nav a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--gold);transition:width .35s}
+nav a:hover::after,nav a:focus-visible::after{width:100%}
+
+/* ===== hero ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:7rem 1.5rem 5rem;overflow:hidden;background:radial-gradient(ellipse at 50% 20%,rgba(201,162,39,.16),transparent 60%),linear-gradient(180deg,var(--ivory),var(--cream))}
+.hero>*:not(.cluster):not(.frame){position:relative;z-index:2}
+.frame{position:absolute;inset:1.6rem;border:1.5px solid rgba(201,162,39,.45);pointer-events:none;z-index:1}
+.frame::after{content:'';position:absolute;inset:7px;border:1px solid rgba(201,162,39,.25)}
+.cluster{position:absolute;width:250px;height:250px;z-index:1;pointer-events:none}
+.cluster svg{position:absolute;filter:drop-shadow(0 6px 8px rgba(90,15,39,.28))}
+.c-tl{top:-30px;left:-30px}
+.c-tr{top:-30px;right:-30px;transform:scaleX(-1)}
+.c-bl{bottom:-30px;left:-30px;transform:scaleY(-1)}
+.c-br{bottom:-30px;right:-30px;transform:scale(-1)}
+.together{font-size:1.05rem;color:var(--crimson);margin-bottom:1rem}
+.names{font-size:clamp(3rem,11vw,5.6rem);font-weight:700;line-height:1.45;background:linear-gradient(100deg,#5a0f27 0%,#8B1E3F 40%,#C9A227 52%,#8B1E3F 64%,#5a0f27 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s ease-in-out infinite}
+@keyframes shine{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+.names .amp{display:block;font-size:.42em;font-weight:400;-webkit-text-fill-color:var(--gold);color:var(--gold);line-height:1.2}
+.hero-date{font-size:clamp(1.2rem,3.2vw,1.55rem);font-weight:600;margin:1.2rem 0 .3rem}
+.hero-venue{font-size:1.15rem;color:#5a4035}
+.hero-rose{width:46px;height:46px;margin:1.3rem auto}
+.invite-line{font-size:1.15rem;color:#5a4035;max-width:460px;margin:0 auto}
+
+/* ===== sections ===== */
+section{padding:5.5rem 1.5rem;position:relative}
+.section-title{font-size:clamp(1.8rem,4.6vw,2.5rem);font-weight:600;color:var(--deep);text-align:center;line-height:1.5}
+.orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:.4rem 0 2.6rem}
+.orn i{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.orn svg{width:34px;height:34px}
+.story{background:linear-gradient(180deg,var(--cream),#efe2cf)}
+.story-content{max-width:680px;margin:0 auto;text-align:center;font-size:1.2rem;color:var(--ink)}
+.story-content p{margin-bottom:1.5rem}
+.story-content p:first-child::first-letter{font-size:1.5em;color:var(--crimson);font-weight:700}
+.events{background:var(--ivory)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.card{background:#fff;border:1px solid rgba(201,162,39,.35);padding:2.2rem 1.6rem;text-align:center;position:relative;transition:transform .4s,box-shadow .4s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(139,30,63,.14)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--crimson),var(--gold),var(--crimson))}
+.card svg{width:46px;height:46px;margin-bottom:.8rem}
+.card h3{font-size:1.4rem;font-weight:600;color:var(--deep);margin-bottom:.4rem}
+.card .time{color:var(--crimson);font-size:1.1rem;font-weight:500}
+.card .place{color:#5a4035;font-size:1.02rem}
+
+.countdown-section{text-align:center;color:var(--ivory);padding:4.5rem 1.5rem;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#8B1E3F,transparent 70%),linear-gradient(135deg,#5a0f27,#3b0a1b)}
+.countdown-section .section-title{color:var(--gold-l)}
+.countdown{display:flex;justify-content:center;gap:clamp(1rem,4vw,2.5rem);flex-wrap:wrap}
+.cb{min-width:88px}
+.cb .num{display:block;font-size:clamp(2.4rem,6vw,3.6rem);color:var(--gold-l);line-height:1.2;font-weight:600;font-variant-numeric:tabular-nums}
+.cb .lab{font-size:1rem;opacity:.85}
+
+.venue{background:var(--cream)}
+.venue-card{max-width:560px;margin:0 auto;background:#fff;border:1px solid rgba(201,162,39,.4);padding:2.8rem 2rem;text-align:center;box-shadow:0 20px 50px rgba(139,30,63,.08)}
+.venue-card h3{font-size:1.7rem;font-weight:600;color:var(--deep)}
+.venue-card p{font-size:1.1rem;color:#5a4035}
+.venue-card .note{margin-top:.8rem;font-style:italic;color:#7a5c4a}
+.btn-map{display:inline-block;margin-top:1.5rem;padding:.7rem 2rem;border:1.5px solid var(--crimson);color:var(--crimson);text-decoration:none;font-size:1rem;transition:.35s}
+.btn-map:hover,.btn-map:focus-visible{background:var(--crimson);color:#fff;outline:none}
+
+.rsvp{background:linear-gradient(180deg,var(--ivory),#f3e7d8)}
+.form{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:1.1rem}
+.form input,.form select,.form textarea{width:100%;padding:.9rem 1.1rem;border:1px solid rgba(201,162,39,.45);background:#fff;font:inherit;font-size:1rem;color:var(--dark);outline:none;transition:border-color .3s,box-shadow .3s}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--crimson);box-shadow:0 0 0 3px rgba(139,30,63,.12)}
+.form textarea{min-height:100px;resize:vertical}
+.form button{padding:1rem 2rem;background:linear-gradient(135deg,var(--crimson),var(--deep));color:var(--ivory);border:none;font:inherit;font-size:1.1rem;font-weight:500;cursor:pointer;transition:.35s}
+.form button:hover,.form button:focus-visible{box-shadow:0 8px 25px rgba(139,30,63,.35);transform:translateY(-2px);outline:none}
+.rsvp-note{text-align:center;margin-top:1.4rem;color:#5a4035;font-style:italic}
+
+footer{background:var(--dark);color:var(--gold-l);text-align:center;padding:2.8rem 1.5rem}
+footer .fn{font-size:1.7rem;font-weight:600}
+footer svg{width:38px;height:38px;margin-bottom:.4rem}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:640px){
+ nav{gap:1rem;padding:.8rem .6rem}nav a{font-size:.88rem}
+ .frame{inset:1rem}.cluster{transform-origin:top left;width:250px;height:250px}
+ .c-tl,.c-tr,.c-bl,.c-br{scale:.58}
+ .c-tl{top:-10px;left:-10px}.c-tr{top:-10px;right:-10px}.c-bl{bottom:-10px;left:-10px}.c-br{bottom:-10px;right:-10px}
+ section{padding:4rem 1.2rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}#petals{display:none}}
+</style>
+</head>
+<body>
+
+<!-- Rose artwork definitions -->
+<svg class="defs" aria-hidden="true">
+ <defs>
+  <radialGradient id="g1" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#e8587a"/><stop offset=".55" stop-color="#b3234a"/><stop offset="1" stop-color="#6a0e29"/></radialGradient>
+  <radialGradient id="g2" cx="45%" cy="30%" r="80%"><stop offset="0" stop-color="#f58aa4"/><stop offset=".5" stop-color="#cf305a"/><stop offset="1" stop-color="#85152f"/></radialGradient>
+  <radialGradient id="g3" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#ffb3c4"/><stop offset=".5" stop-color="#d9406a"/><stop offset="1" stop-color="#7d1230"/></radialGradient>
+  <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f8a4b"/><stop offset="1" stop-color="#1f4a2a"/></linearGradient>
+  <linearGradient id="gp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc0cf"/><stop offset=".5" stop-color="#e0506f"/><stop offset="1" stop-color="#9b2142"/></linearGradient>
+
+  <symbol id="rose" viewBox="0 0 100 100">
+   <g stroke="rgba(60,5,20,.35)" stroke-width=".6">
+    <g fill="url(#g1)">
+     <ellipse cx="50" cy="27" rx="23" ry="26"/><ellipse cx="50" cy="27" rx="23" ry="26" transform="rotate(72 50 50)"/><ellipse cx="50" cy="27" rx="23" ry="26" transform="rotate(144 50 50)"/><ellipse cx="50" cy="27" rx="23" ry="26" transform="rotate(216 50 50)"/><ellipse cx="50" cy="27" rx="23" ry="26" transform="rotate(288 50 50)"/>
+    </g>
+    <g fill="url(#g2)" transform="rotate(36 50 50)">
+     <ellipse cx="50" cy="32" rx="18" ry="20"/><ellipse cx="50" cy="32" rx="18" ry="20" transform="rotate(72 50 50)"/><ellipse cx="50" cy="32" rx="18" ry="20" transform="rotate(144 50 50)"/><ellipse cx="50" cy="32" rx="18" ry="20" transform="rotate(216 50 50)"/><ellipse cx="50" cy="32" rx="18" ry="20" transform="rotate(288 50 50)"/>
+    </g>
+    <g fill="url(#g3)" transform="rotate(12 50 50)">
+     <ellipse cx="50" cy="39" rx="13" ry="14"/><ellipse cx="50" cy="39" rx="13" ry="14" transform="rotate(90 50 50)"/><ellipse cx="50" cy="39" rx="13" ry="14" transform="rotate(180 50 50)"/><ellipse cx="50" cy="39" rx="13" ry="14" transform="rotate(270 50 50)"/>
+    </g>
+   </g>
+   <circle cx="50" cy="50" r="10" fill="#7d1230"/>
+   <path d="M40 50a10 10 0 0 1 20 0M44 50a6 6 0 0 0 12 0M47 48a3 3 0 0 1 6 0" fill="none" stroke="rgba(255,190,205,.65)" stroke-width="1.2" stroke-linecap="round"/>
+   <path d="M30 24q10-12 26-10" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/>
+   <ellipse cx="68" cy="30" rx="6" ry="3" fill="rgba(255,255,255,.2)" transform="rotate(40 68 30)"/>
+  </symbol>
+
+  <symbol id="petal" viewBox="0 0 100 100"><path d="M50 4C76 20 86 54 50 96 14 54 24 20 50 4Z" fill="url(#gp)"/><path d="M50 14C50 40 50 66 50 88" stroke="rgba(120,20,50,.25)" fill="none" stroke-width="1.5"/></symbol>
+  <symbol id="leaf" viewBox="0 0 40 100"><path d="M20 2C42 30 40 70 20 98 0 70-2 30 20 2Z" fill="url(#gl)"/><path d="M20 8V92" stroke="rgba(200,255,200,.4)" stroke-width="1.2"/></symbol>
+ </defs>
+</svg>
+
+<div id="petals" aria-hidden="true"></div>
+
+<div id="splash">
+ <svg class="splash-rose" viewBox="0 0 100 100"><use href="#rose"/></svg>
+ <div class="splash-names">නිමාෂා & නුවන්</div>
+ <div class="splash-sub">විවාහ මංගල්‍යයට ඔබට ආරාධනා</div>
+ <button class="splash-btn" id="openInvite">ආරාධනය විවෘත කරන්න</button>
+</div>
+
+<nav id="mainNav">
+ <a href="#story">අපේ කතාව</a><a href="#events">උත්සව</a><a href="#venue">ස්ථානය</a><a href="#rsvp">පැමිණීම</a>
+</nav>
+
+<section class="hero" id="home">
+ <div class="frame"></div>
+ <div class="cluster c-tl" data-c></div><div class="cluster c-tr" data-c></div>
+ <div class="cluster c-bl" data-c></div><div class="cluster c-br" data-c></div>
+ <p class="together">දෙපාර්ශ්වයේ පවුල්වල ආශීර්වාදයෙන්</p>
+ <h1 class="names">නිමාෂා<span class="amp">සහ</span>නුවන්</h1>
+ <svg class="hero-rose" viewBox="0 0 100 100"><use href="#rose"/></svg>
+ <p class="hero-date">2026 දෙසැම්බර් 27 වන ඉරිදා</p>
+ <p class="hero-venue">ග්‍රෑන්ඩ් මොනාර්ක්, කොළඹ</p>
+ <p class="invite-line" style="margin-top:1.4rem">අපගේ විවාහ මංගල්‍යයට සහභාගී වී, අපගේ සතුට සිරිබර කරන ලෙස ඔබට ගෞරවයෙන් ආරාධනා කරමු.</p>
+</section>
+
+<section class="story" id="story">
+ <h2 class="section-title reveal">අපේ කතාව</h2>
+ <div class="orn reveal"><i></i><svg viewBox="0 0 100 100"><use href="#rose"/></svg><i></i></div>
+ <div class="story-content">
+  <p class="reveal">අරලිය ගසක සෙවණේ සිදු වූ අහම්බ හමුවක සිට, සිලෝන් තේ කෝප්ප අතර ගෙවුණු අනන්ත කතාබහ දක්වා, අපගේ ගමන සිනහවෙන්, නිහඬ මොහොතවලින් සහ දෙපාර්ශ්වයේ පවුල්වල ආශීර්වාදයෙන් විවර වූවකි.</p>
+  <p class="reveal">අපේ දිවයිනේ පොහොසත් සම්ප්‍රදායන් මුල් කරගෙන, පරම්පරා ගණනක් පැවත ආ වටිනාකම්වලින් මග පෙන්වා, අත්වැල් බැඳගෙන, හදවත් එක් කරගෙන, අපි නව පරිච්ඡේදයක් ඇරඹීමට සූදානම්.</p>
+  <p class="reveal">අපගේ නව ජීවිතය ආරම්භ වන මේ මංගල මොහොතේ ඔබත් අප සමඟ සිටීම අපට මහත් ගෞරවයකි.</p>
+ </div>
+</section>
+
+<section class="events" id="events">
+ <h2 class="section-title reveal">අප සමඟ සැමරීමට</h2>
+ <div class="orn reveal"><i></i><svg viewBox="0 0 100 100"><use href="#rose"/></svg><i></i></div>
+ <div class="grid">
+  <div class="card reveal">
+   <svg viewBox="0 0 48 48" fill="none" stroke="#C9A227" stroke-width="2"><path d="M24 4v10M19 9h10M10 44V24l14-10 14 10v20zM20 44V32h8v12"/></svg>
+   <h3>දේව මෙහෙය</h3><p class="time">පෙ.ව. 9.00</p><p class="place">ශාන්ත ආන් දේවස්ථානය, නිට්ටඹුව</p>
+  </div>
+  <div class="card reveal">
+   <svg viewBox="0 0 48 48" fill="none" stroke="#C9A227" stroke-width="2"><circle cx="17" cy="26" r="9"/><circle cx="31" cy="26" r="9"/><path d="M24 10l-3-5h6z"/></svg>
+   <h3>විවාහ මංගල්‍යය</h3><p class="time">පෙ.ව. 10.30</p><p class="place">ග්‍රෑන්ඩ් මොනාර්ක්, කොළඹ</p>
+  </div>
+  <div class="card reveal">
+   <svg viewBox="0 0 48 48" fill="none" stroke="#C9A227" stroke-width="2"><path d="M14 6h20l-3 14a7 7 0 0 1-14 0zM24 27v14M16 42h16"/></svg>
+   <h3>මංගල සංග්‍රහය</h3><p class="time">ප.ව. 6.30</p><p class="place">ග්‍රෑන්ඩ් මොනාර්ක්, කොළඹ</p>
+  </div>
+ </div>
+</section>
+
+<section class="countdown-section">
+ <h2 class="section-title">මංගල දිනය තෙක්</h2>
+ <div class="orn"><i></i><svg viewBox="0 0 100 100"><use href="#rose"/></svg><i></i></div>
+ <div class="countdown">
+  <div class="cb"><span class="num" id="days">00</span><span class="lab">දින</span></div>
+  <div class="cb"><span class="num" id="hours">00</span><span class="lab">පැය</span></div>
+  <div class="cb"><span class="num" id="mins">00</span><span class="lab">මිනිත්තු</span></div>
+  <div class="cb"><span class="num" id="secs">00</span><span class="lab">තත්පර</span></div>
+ </div>
+</section>
+
+<section class="venue" id="venue">
+ <h2 class="section-title reveal">උත්සව ස්ථානය</h2>
+ <div class="orn reveal"><i></i><svg viewBox="0 0 100 100"><use href="#rose"/></svg><i></i></div>
+ <div class="venue-card reveal">
+  <h3>ග්‍රෑන්ඩ් මොනාර්ක්</h3>
+  <p>අංක 64, ගාලු පාර</p><p>කොළඹ 03, ශ්‍රී ලංකාව</p>
+  <p class="note">සම්ප්‍රදාය නවීනත්වය හා මුණගැසෙන අලංකාර ස්ථානයක්</p>
+  <a class="btn-map" href="https://maps.google.com/?q=Grand+Monarch+Colombo" target="_blank" rel="noopener">සිතියමේ බලන්න</a>
+ </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+ <h2 class="section-title reveal">ඔබේ පැමිණීම දන්වන්න</h2>
+ <div class="orn reveal"><i></i><svg viewBox="0 0 100 100"><use href="#rose"/></svg><i></i></div>
+ <form class="form reveal" id="rsvpForm" onsubmit="handleRSVP(event)">
+  <input type="text" name="name" placeholder="ඔබේ සම්පූර්ණ නම" required />
+  <input type="email" name="email" placeholder="විද්‍යුත් තැපැල් ලිපිනය" required />
+  <select name="attendance" required>
+   <option value="" disabled selected>ඔබ පැමිණෙනවාද?</option>
+   <option value="yes">සතුටින් පැමිණෙමි</option>
+   <option value="no">කණගාටුවෙන් පැමිණීමට නොහැක</option>
+  </select>
+  <select name="guests">
+   <option value="1">අමුත්තන් 1 දෙනෙක්</option><option value="2">අමුත්තන් 2 දෙනෙක්</option>
+   <option value="3">අමුත්තන් 3 දෙනෙක්</option><option value="4">අමුත්තන් 4 දෙනෙක්</option>
+  </select>
+  <textarea name="message" placeholder="පණිවිඩයක් හෝ ආහාර සටහන් (අවශ්‍ය නම්)"></textarea>
+  <button type="submit">තහවුරු කරන්න</button>
+ </form>
+ <p class="rsvp-note reveal">කරුණාකර 2026 නොවැම්බර් 15 දිනට පෙර දන්වන්න.</p>
+</section>
+
+<footer>
+ <svg viewBox="0 0 100 100"><use href="#rose"/></svg>
+ <div class="fn">නිමාෂා & නුවන්</div>
+ <p>2026 දෙසැම්බර් 27 · කොළඹ, ශ්‍රී ලංකාව</p>
+ <p style="margin-top:.6rem;opacity:.7;font-size:.95rem">ආදරයෙන් සහ කෘතඥතාවෙන්</p>
+</footer>
+
+<script>
+const NS='http://www.w3.org/2000/svg';
+function sym(id,x,y,w,h,rot){
+  const s=document.createElementNS(NS,'svg');
+  s.setAttribute('viewBox',id==='leaf'?'0 0 40 100':'0 0 100 100');
+  s.style.cssText=`left:${x}px;top:${y}px;width:${w}px;height:${h}px;transform:rotate(${rot}deg)`;
+  s.innerHTML=`<use href="#${id}"/>`;return s;
+}
+// rose bouquet corners
+document.querySelectorAll('[data-c]').forEach(c=>{
+  [['leaf',70,10,34,96,-35],['leaf',120,40,34,96,25],['leaf',10,110,32,90,-75],['leaf',130,100,30,84,70],
+   ['rose',0,0,130,130,0],['rose',105,70,92,92,40],['rose',30,125,74,74,-30],['rose',150,10,54,54,15],['rose',115,150,48,48,60]
+  ].forEach(a=>c.appendChild(sym(a[0],a[1],a[2],a[3],a[4],a[5])));
+});
+
+// splash
+const splash=document.getElementById('splash'),nav=document.getElementById('mainNav');
+document.getElementById('openInvite').addEventListener('click',()=>{
+  splash.classList.add('hide');
+  setTimeout(()=>{nav.classList.add('visible');createRoses();},600);
+});
+
+// falling roses & petals
+function createRoses(){
+  const box=document.getElementById('petals');
+  for(let i=0;i<16;i++){
+    const rose=i%3===0, size=rose?26+Math.random()*18:14+Math.random()*14;
+    const d=document.createElement('div');d.className='fall';
+    d.style.cssText=`left:${Math.random()*100}vw;width:${size}px;height:${size}px;--sw:${(Math.random()*80-40).toFixed(0)}px;animation-duration:${9+Math.random()*9}s;animation-delay:${Math.random()*9}s`;
+    d.innerHTML=`<svg viewBox="0 0 100 100" style="animation-duration:${2+Math.random()*3}s"><use href="#${rose?'rose':'petal'}"/></svg>`;
+    box.appendChild(d);
+  }
+}
+
+// countdown
+const weddingDate=new Date('2026-12-27T10:30:00+05:30').getTime();
+function tick(){
+  const d=weddingDate-Date.now(),ids=['days','hours','mins','secs'];
+  const v=d<0?[0,0,0,0]:[Math.floor(d/864e5),Math.floor(d%864e5/36e5),Math.floor(d%36e5/6e4),Math.floor(d%6e4/1e3)];
+  ids.forEach((id,i)=>document.getElementById(id).textContent=String(v[i]).padStart(2,'0'));
+}
+tick();setInterval(tick,1000);
+
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// rsvp demo
+function handleRSVP(e){
+  e.preventDefault();const f=e.target;
+  alert(`ස්තූතියි ${f.name.value}! ඔබේ පිළිතුර ආදරයෙන් ලැබුණා.\n\n(මෙය ආදර්ශනයකි — සැබෑ අනුවාදයේදී මෙය යුවළට යැවෙනු ඇත.)`);
+  f.reset();
+}
+window.addEventListener('scroll',()=>{nav.style.boxShadow=scrollY>100?'0 4px 20px rgba(44,24,16,.08)':'none'});
+</script>
+</body>
+</html>
