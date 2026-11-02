@@ -94,6 +94,12 @@
     .lp::after { content: ""; position: absolute; left: 50%; top: 12%; bottom: 8%; width: 1px; background: rgba(255,255,255,.4); }
     .lotus3d-core { position: absolute; left: calc(50% - .07em); bottom: calc(50% - .02em); width: .14em; height: .14em; border-radius: 50%;
       background: radial-gradient(circle at 40% 35%, #fff2b0, #e1b73c 55%, #a97a14); transform: rotateX(-90deg); box-shadow: 0 0 .1em rgba(255,220,120,.7); }
+    .splash-bouquet { position: absolute; width: clamp(170px, 24vw, 320px); height: auto; z-index: 0; pointer-events: none; opacity: .95; filter: drop-shadow(0 8px 14px rgba(8,0,4,.4)); }
+    .splash-bouquet--tl { top: 0; left: -22px; }
+    .splash-bouquet--tr { top: 0; right: -22px; transform: scaleX(-1); }
+    .splash-bouquet--bl { bottom: 0; left: -22px; transform: scaleY(-1); }
+    .splash-bouquet--br { bottom: 0; right: -22px; transform: scale(-1); }
+    @media (max-width: 650px) { .splash-bouquet { width: 150px; } .splash-bouquet--tl, .splash-bouquet--bl { left: -48px; } .splash-bouquet--tr, .splash-bouquet--br { right: -48px; } }
     @keyframes rose-bloom {
       0% { opacity: .04; transform: perspective(650px) rotateY(58deg) rotate(-29deg) scale(.27); filter: blur(5px) drop-shadow(0 8px 14px rgba(10,0,5,.3)); }
       62% { opacity: 1; transform: perspective(650px) rotateY(-8deg) rotate(5deg) scale(1.12); filter: blur(0) drop-shadow(0 20px 28px rgba(12,0,7,.58)); }
@@ -480,8 +486,12 @@
   </svg>
 
   <div id="splash" class="splash" role="dialog" aria-modal="true" aria-labelledby="splashTitle">
+    <svg class="splash-bouquet splash-bouquet--tl" viewBox="0 0 340 270" aria-hidden="true"><use href="#bouquet-art"/></svg>
+    <svg class="splash-bouquet splash-bouquet--tr" viewBox="0 0 340 270" aria-hidden="true"><use href="#bouquet-art"/></svg>
+    <svg class="splash-bouquet splash-bouquet--bl" viewBox="0 0 340 270" aria-hidden="true"><use href="#bouquet-art"/></svg>
+    <svg class="splash-bouquet splash-bouquet--br" viewBox="0 0 340 270" aria-hidden="true"><use href="#bouquet-art"/></svg>
     <div class="splash-content">
-      <div id="splashLotus" class="splash-rose lotus3d" aria-hidden="true"><div class="lotus3d-tilt"><div class="lotus3d-rotor"></div></div></div>
+      <svg class="splash-rose" viewBox="0 0 120 120" aria-hidden="true"><use href="#rose-art"/></svg>
       <p class="splash-kicker">අපගේ සුන්දරම දිනයට ඔබට ඇරයුම්</p>
       <h1 id="splashTitle" class="splash-names gold-text"><span>නිමාෂා</span> <span class="ampersand">සහ</span> <span>නුවන්</span></h1>
       <p class="splash-tagline">විවාහ දිවියට පා තබයි</p>
@@ -691,33 +701,6 @@
     'use strict';
 
 
-    // 3D නෙළුම් මල් පෙති ජනනය
-    (function buildLotus() {
-      const rotor = document.querySelector('#splashLotus .lotus3d-rotor');
-      if (!rotor) return;
-      const layers = [
-        { n: 9, off: 0,  tilt: 72, h: .50, c: ['#9c2459', '#d9628c', '#f6b3c8'] },
-        { n: 7, off: 20, tilt: 52, h: .46, c: ['#c23b72', '#ec86a8', '#ffd9e5'] },
-        { n: 6, off: 0,  tilt: 34, h: .40, c: ['#d9558a', '#f7a4c0', '#fff4f8'] },
-        { n: 4, off: 45, tilt: 16, h: .30, c: ['#e46c9a', '#fbb7cf', '#fff8fb'] }
-      ];
-      layers.forEach(layer => {
-        for (let i = 0; i < layer.n; i++) {
-          const p = document.createElement('span');
-          p.className = 'lp';
-          p.style.setProperty('--yaw', (layer.off + i * 360 / layer.n) + 'deg');
-          p.style.setProperty('--tilt', layer.tilt + 'deg');
-          p.style.setProperty('--h', layer.h + 'em');
-          p.style.setProperty('--c0', layer.c[0]);
-          p.style.setProperty('--c1', layer.c[1]);
-          p.style.setProperty('--c2', layer.c[2]);
-          rotor.appendChild(p);
-        }
-      });
-      const core = document.createElement('span');
-      core.className = 'lotus3d-core';
-      rotor.appendChild(core);
-    })();
 
     const splash = document.getElementById('splash');
     const openButton = document.getElementById('openInvitation');
